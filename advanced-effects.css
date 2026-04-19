@@ -1,0 +1,328 @@
+/* Advanced Visual Effects for Portfolio */
+
+/* Animated Background Pattern */
+.skills::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(30deg, rgba(102, 126, 234, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(102, 126, 234, 0.03) 87.5%, rgba(102, 126, 234, 0.03)),
+        linear-gradient(150deg, rgba(102, 126, 234, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(102, 126, 234, 0.03) 87.5%, rgba(102, 126, 234, 0.03)),
+        linear-gradient(30deg, rgba(102, 126, 234, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(102, 126, 234, 0.03) 87.5%, rgba(102, 126, 234, 0.03)),
+        linear-gradient(150deg, rgba(102, 126, 234, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(102, 126, 234, 0.03) 87.5%, rgba(102, 126, 234, 0.03));
+    background-size: 80px 140px;
+    background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.skills {
+    position: relative;
+}
+
+.skills .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Floating Icons Animation */
+@keyframes floatIcon {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+    75% {
+        transform: translateY(10px) rotate(-5deg);
+    }
+}
+
+.skill-category h3 i {
+    animation: floatIcon 3s ease-in-out infinite;
+    display: inline-block;
+}
+
+/* Neon Glow Effect for Tags on Hover */
+.tag:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    box-shadow: 
+        0 0 10px rgba(102, 126, 234, 0.5),
+        0 0 20px rgba(102, 126, 234, 0.3),
+        0 0 30px rgba(102, 126, 234, 0.2);
+    animation: neonPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+    0%, 100% {
+        box-shadow: 
+            0 0 10px rgba(102, 126, 234, 0.5),
+            0 0 20px rgba(102, 126, 234, 0.3),
+            0 0 30px rgba(102, 126, 234, 0.2);
+    }
+    50% {
+        box-shadow: 
+            0 0 15px rgba(102, 126, 234, 0.7),
+            0 0 30px rgba(102, 126, 234, 0.5),
+            0 0 45px rgba(102, 126, 234, 0.3);
+    }
+}
+
+/* Timeline Glow Effect */
+.timeline::before {
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+}
+
+.timeline-dot {
+    box-shadow: 
+        0 0 0 4px var(--bg-light),
+        0 0 20px rgba(102, 126, 234, 0.5);
+    animation: dotPulse 2s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+    0%, 100% {
+        box-shadow: 
+            0 0 0 4px var(--bg-light),
+            0 0 20px rgba(102, 126, 234, 0.5);
+    }
+    50% {
+        box-shadow: 
+            0 0 0 8px var(--bg-light),
+            0 0 30px rgba(102, 126, 234, 0.8);
+    }
+}
+
+/* Achievement Icon Rotation on Hover */
+.achievement-card:hover .achievement-icon {
+    animation: iconRotate 0.6s ease-in-out;
+}
+
+@keyframes iconRotate {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.2);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+/* Certificate Image Parallax Effect */
+.certificate-card:hover .certificate-image img {
+    transform: scale(1.15) translateY(-5px);
+}
+
+/* Scroll Progress Indicator */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    z-index: 9999;
+    transition: width 0.1s ease;
+    box-shadow: 0 2px 10px rgba(102, 126, 234, 0.5);
+}
+
+/* Social Links Hover Effect */
+.social-links a {
+    position: relative;
+}
+
+.social-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 80%;
+    height: 2px;
+    background: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* Gradient Text Animation for Hero Description */
+.hero-description {
+    animation: fadeInUp 1.2s ease 0.3s backwards;
+}
+
+/* Button Ripple Effect */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* Section Reveal Animation */
+section {
+    animation: sectionReveal 0.8s ease backwards;
+}
+
+section:nth-child(even) {
+    animation-delay: 0.1s;
+}
+
+section:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+@keyframes sectionReveal {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Magnetic Effect for Cards */
+.skill-category,
+.achievement-card,
+.certificate-card {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Enhanced Shadow on Scroll */
+.navbar.scrolled {
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Gradient Overlay for Sections */
+.about::after,
+.certificates::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.5));
+    pointer-events: none;
+}
+
+.about,
+.certificates {
+    position: relative;
+}
+
+/* Animated Underline for Links */
+.contact-item a {
+    position: relative;
+    display: inline-block;
+}
+
+.contact-item a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.contact-item a:hover::after {
+    width: 100%;
+}
+
+/* Sparkle Effect on Achievement Numbers */
+.achievement-card h3 {
+    position: relative;
+}
+
+.achievement-card:hover h3::before {
+    content: '✨';
+    position: absolute;
+    left: -30px;
+    animation: sparkle 0.6s ease;
+}
+
+.achievement-card:hover h3::after {
+    content: '✨';
+    position: absolute;
+    right: -30px;
+    animation: sparkle 0.6s ease 0.2s;
+}
+
+@keyframes sparkle {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+/* Loading Animation for Page */
+@keyframes pageLoad {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+body {
+    animation: pageLoad 0.5s ease;
+}
+
+/* Cursor Trail Effect (Optional - can be toggled) */
+.cursor-trail {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.5), transparent);
+    pointer-events: none;
+    z-index: 9998;
+    animation: cursorFade 0.5s ease forwards;
+}
+
+@keyframes cursorFade {
+    to {
+        opacity: 0;
+        transform: scale(2);
+    }
+}
